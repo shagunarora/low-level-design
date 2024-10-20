@@ -1,0 +1,19 @@
+Entities/Services
+    - IUser
+        - ITrueCallerUser
+            - TrueCallerUser
+        - PhoneBookUser
+
+    - Category <<Enum>> 
+        - Business, Personal
+    
+    - UserPhoneBookDirectory
+    
+    - TrueCallerDirectoryService
+    - SpamReportService
+    - TrueCallerUserService
+    - ProfileUpdateObserver
+    - Trie 
+    - TrieNode
+    - SearchService
+    - Subject

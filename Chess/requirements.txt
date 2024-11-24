@@ -1,0 +1,56 @@
+Requirements:
+
+  - System should support 2 players to play online.
+  - Players can be assigned any one side (white/black) randomly.
+  - This game will follow standard chess rules:
+     - (2 Knights, 2 Rooks, 2 Bishops, 8 Pawns, 1 Queen, 1 King) x2
+     - 8 x 8 chess board
+     - Standard set of rules to move a piece.
+     - White will start first.
+     - If a king is killed then the other side wins.
+     - Players will move one after the other
+     - Players cannot rollback already played move.
+
+  - The players have option to resign or agree on draw.
+         - Status
+            - CHECKMATE
+            - RESIGNED
+            - DRAW (Optional)
+
+Identify Entiies:
+    - Chessboard (8x8)
+    - Cell
+        - row
+        - col
+        - piece
+
+    - Piece <<Concrete>> (every Piece can be created based on the type)
+         - 
+         - validate_move() -- > (validate_move of the piece)
+    
+        - Knight
+            - type
+            - color
+            - kill (boolean) (implements piece) --> validate_move()
+        - Rook
+        - Bishop
+        - Pawn
+        
+
+    - Piectype (Enum)
+    - Player
+    - GameState (Enum)
+        - WIN
+        - RESIGNED
+        - DRAW
+
+    - Game
+        - initialize board
+        - 2 players
+        - start_game():
+            Loop till either DRAW, RESIGN or win.
+        - state of the game.
+
+    - GameLogger
+        - add (log of all the moves played in the log file.)
+        

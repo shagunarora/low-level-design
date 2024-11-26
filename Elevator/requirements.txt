@@ -1,0 +1,57 @@
+Requirements:
+
+    Elevator (Think how elevator works)
+
+    1. Each floor has a option from outside to select the floor 
+       on which user wants to go to.
+    2. Once user selects the button - one of the lift should be assigned
+       to fulfil the request.
+            - This lift selection can be based on certain criteria
+              nearest left and If some lift active then direction of lift.
+    3. Lift should first reach the current floor where user is then 
+       fulfil subsequent request of taking the user to destination floor
+    4. Lift will change the state after fulfiling all the pending requests.
+
+Entities:
+
+    1. Floor
+        - floor_number
+        - request_lift()
+
+    2. User
+    3. RequestCommand()
+        - current_floor_number
+        - destination_floor_number
+        - execute()
+
+    4. Lift
+        - current_floor
+        - state
+        - direction (up/down)
+        - requests_to_process
+
+        - handle_request() --> This should run until all the request are fulfiles
+        and then status should change to STOP.
+    
+    5. LiftService
+        - list<Lift>
+        - LiftSelectionStrategy
+        - process_request()
+            - assign_lift()
+            - Add in requests_to_process of that lift.
+
+    6. Display (per lift)
+        - direction
+        - floor it is currently at.
+
+    7. LiftSelectionStrategy <<Interface>>
+        - NearestLiftStrat
+        - SameDirectionNearestLiftStrat
+
+    =================================================
+
+    1. LiftState
+        - MOVING
+        - IDLE
+
+

@@ -1,0 +1,40 @@
+Problem Statement:
+    - Design a low-level design for an Uber Eats Recommendation System 
+      that suggests restaurants and food items to users based on factors 
+      like location, user preferences, order history, and trending dishes.
+
+Requirements:
+    - All the recomendations should be created using restaurants/dishes
+      that are in nearest proximity to the location selected.
+
+    - User should be able to get recommendations based on below:
+        - Trending dishes
+            - Trending dishes could be the most ordered dish
+        - Based on Order history
+            - Based on Cuisine Type ordered
+                - Recommend trending dishes based on top k cuisine type ordered.
+            - Based on fav restaurants  
+                - Highest rated dishes from fav restaurants. fav restaurants can be the one
+                  from which user mostly ordered.
+
+Assumption:
+    - We can assume 2 search services for seraching restaurants and dishes based on location and 
+      other filters.
+        - RestaurantSearchService
+        - DishSearchService
+
+Entities
+    - User
+    - Location
+    - Restaurant
+    - Dish
+    - RestaurantSearchService
+    - DishSearchService     
+    - Order
+    - OrderHistory
+    - RecommendationService
+    - RcStrategy
+        - RcByTrendingDishes
+        - RcByOrderHistory
+            - RcByCuisineTypeOrdered
+            - RcByFavRestaurant
